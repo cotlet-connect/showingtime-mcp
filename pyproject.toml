@@ -1,0 +1,29 @@
+[project]
+name = "showingtime-mcp"
+version = "1.1.0"
+description = "Connect ShowingTime to Claude Code, ChatGPT and any AI agent through Cotlet.dev, a hosted MCP server. No ShowingTime API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["showingtime", "showingtime api", "showingtime mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/mcp/showingtime?utm_source=pypi&utm_medium=package&utm_campaign=showingtime"
+Source = "https://github.com/cotlet-connect/showingtime-mcp"
+
+[project.scripts]
+showingtime-mcp = "showingtime_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"showingtime_agent.py" = "showingtime_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["showingtime_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
