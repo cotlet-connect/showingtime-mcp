@@ -116,6 +116,82 @@ python3 showingtime_agent.py tools     # list Cotlet.dev tools
 python3 showingtime_agent.py serve     # start the stdio MCP server (same as no argument)
 ```
 
+## What you can ask your AI to do in ShowingTime
+
+These are real jobs ShowingTime users asked about. Cotlet lets ChatGPT, Claude or any MCP client do them in your own signed-in ShowingTime account.
+
+### Seller updates and feedback
+
+#### Can I send ShowingTime feedback to my seller every week without copying it by hand?
+
+Partly. ShowingTime has a Listing Activity Report with showings and feedback per listing, and a way to share feedback with your seller. With Cotlet, your agent reads the week's showings and feedback for a listing and drafts the update for your seller. Nothing is sent until you say yes.
+
+Ask your agent: "Summarize this week's showings and feedback for 22 Birch Ln in ShowingTime and draft the update for my seller."
+
+As an API endpoint: Yes. Save the weekly read as an endpoint in Cotlet that returns showings and feedback per listing, then call it every Friday from n8n, Make or Zapier to email each seller after your OK.
+
+#### Which of my ShowingTime showings last week have no feedback yet, and can AI ask each buyer agent for it?
+
+Yes. With Cotlet, ChatGPT or Claude reads last week's showings on your listings in ShowingTime, lists the ones with no feedback and drafts a short request to each buyer agent. Nothing is sent until you say yes.
+
+Ask your agent: "List last week's ShowingTime showings on my listings with no feedback and draft a short request to each buyer agent."
+
+As an API endpoint: Yes. Save the missing-feedback check as an endpoint in Cotlet and call it every morning from n8n, Make or Zapier to get the list in Slack or email.
+
+### Requests and confirmations
+
+#### Can AI list the showing requests waiting for my confirmation in ShowingTime and confirm the ones that fit my seller's rules?
+
+Partly. ShowingTime can confirm some appointments on its own when the listing's settings allow it. With Cotlet, your agent lists the requests still waiting, checks each against the rules you give and confirms the fitting ones. Nothing changes until you say yes.
+
+Ask your agent: "List the ShowingTime requests waiting for my confirmation and mark which fit my seller's rules. Confirm them only after my OK."
+
+As an API endpoint: Yes. Save the pending-request list as an endpoint in Cotlet and call it every hour from n8n, Make or Zapier to see new requests early.
+
+#### Which of my ShowingTime requests are still unconfirmed after 4 hours, and who do I call?
+
+Partly. ShowingTime shows the status of each request you made. With Cotlet, your agent lists the ones still unconfirmed after 4 hours, reads the listing agent's phone from the showing details and drafts a text for you to send. Cotlet does not send texts itself.
+
+Ask your agent: "List my ShowingTime showing requests unconfirmed after 4 hours with the listing agent's phone and draft a short text for each."
+
+As an API endpoint: Yes. Save the unconfirmed-request list as an endpoint in Cotlet and call it every hour from n8n, Make or Zapier to get a ping when a request is stuck.
+
+#### Can AI request showings for five listings on Saturday in route order in ShowingTime?
+
+Yes. With Cotlet, your agent opens each listing in ShowingTime, requests a time inside your Saturday window and orders the tour by route. Nothing is requested until you say yes.
+
+Ask your agent: "Request ShowingTime showings for these 5 listings on Saturday between 10 and 2, in route order. Show me the plan before you request anything."
+
+As an API endpoint: Yes. Save the request step as an endpoint in Cotlet that takes a listing and a time, and call it from n8n or Make after your OK.
+
+### Daily list and instructions
+
+#### Can I turn ShowingTime texts into one summary of tomorrow's showings every evening?
+
+Partly. ShowingTime keeps sending its own texts and emails, and you set those yourself. With Cotlet, your agent reads tomorrow's showings on your listings and your buyer tours each evening and gives you one list, so you stop reading each text.
+
+Ask your agent: "Every evening give me one list of tomorrow's ShowingTime showings on my listings and my buyer tours, with time, address and agent."
+
+As an API endpoint: Yes. Save the daily list as an endpoint in Cotlet and call it every evening from n8n, Make or Zapier to get it by email or Slack.
+
+#### Can AI update the showing instructions on my ShowingTime listing with a new lockbox code and attach the disclosure?
+
+Yes. With Cotlet, your agent opens the listing's showing instructions in ShowingTime, adds the new code with the date it starts and attaches the disclosure. Nothing changes until you say yes.
+
+Ask your agent: "Update the showing instructions on 22 Birch Ln in ShowingTime: new lockbox code from Friday, attach the disclosure. Show me the change first."
+
+As an API endpoint: Yes. Save the change as an endpoint in Cotlet that takes a listing and the new text, and call it from n8n or Make after your OK.
+
+### Listing numbers
+
+#### How many showings and second showings did each of my ShowingTime listings get in the last 30 days?
+
+Yes. ShowingTime's Listing Activity Report shows showings and feedback per listing. With Cotlet, your agent runs it for each of your listings over 30 days and puts showings, repeat showings and feedback side by side for your price talk.
+
+Ask your agent: "For each of my ShowingTime listings, show showings, second showings and feedback received in the last 30 days in one table."
+
+As an API endpoint: Yes. Save the listing-activity read as an endpoint in Cotlet and call it every Monday from n8n, Make or Zapier to fill a Google Sheet.
+
 ## Questions from ShowingTime users
 
 **Does ShowingTime have an API?**
